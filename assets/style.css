@@ -273,7 +273,7 @@ form textarea {
     flex-direction: column;
   }
   form {
-    width: 90%;
+    width: 98%;
     padding: 0 5px  55px 5px;
     display: flex;
     align-items: center;
@@ -283,6 +283,7 @@ form textarea {
   }
   form input {
     width: 250px;
+    
   }
   form textarea{
     width: 250px;
