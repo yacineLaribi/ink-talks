@@ -162,21 +162,21 @@
         <h5>Get in Touch with us , to participate</h5>
         <h1>Join Us</h1>
         <h5>Just fill the form and we Will Call You !</h5>
-        <form action="">
+        <form action="" method="POST">
           <div class="form-input-1">
-            <input type="text" placeholder="Full name" required />
+            <input type="text" placeholder="Full name" name="fullname" required />
           </div>
 
           <div class="form-input-2">
-            <input type="email" placeholder="Email" required />
+            <input type="email" placeholder="Email" name="mail" required />
           </div>
 
           <div class="form-input-3">
-            <input type="phone" placeholder="Phone number" required />
+            <input type="phone" placeholder="Phone number" name="phone" required />
           </div>
 
           <div class="form-input-4">
-            <input type="text" placeholder="Your major" reauired />
+            <input type="text" placeholder="Your major" name="major" required />
           </div>
 
           <div class="form-input-5">
@@ -184,14 +184,44 @@
               cols="63"
               rows="10"
               placeholder="Your Motivation to join us"
+              name="motivation"
             ></textarea>
           </div>
           <br />
-          <button type="submit" class="golden-button">Submit</button>
+          <button type="submit" id="sub" class="golden-button">Submit</button>
         </form>
       </section>
     </div>
   
-  
+  <script>
+
+    /*the contact part */
+const form = document.querySelector("form");
+let j;
+j = 0;
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  document.getElementById("sub").innerHTML = "submitting...";
+  if (j == 0) {
+    let data = new FormData(form);
+    fetch(
+      "https://script.google.com/macros/s/AKfycbxRI5kAa-_bQRu7NcatROMdtKa_uER0gPvHnSA0QQSHQ0P5vFhl2Q-1Rl3djADAyyH6/exec",
+      {
+        method: "POST",
+        body: data,
+      }
+    )
+      .then((res) => res.text())
+      .then((data) => {
+        j = j + 1;
+        console.log(data);
+        document.querySelector("#sub").innerHTML = data;
+        console.log(j);
+      });
+  } else {
+    document.getElementById("sub").innerHTML = "Already registered!";
+  }
+});
+  </script>
   </body>
 </html>
