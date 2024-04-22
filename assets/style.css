@@ -239,6 +239,7 @@ form textarea {
     position: static;
     width: 95%;
     height: 70vh;
+    padding-bottom: 10px;
   }
   .main-container {
     position: static;
